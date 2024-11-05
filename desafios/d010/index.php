@@ -10,12 +10,12 @@
     <main>
         <h1>Informe um número</h1>
         <?php 
-            $anoNasc = $_GET['anoNasc'] ?? 0;
+            $anoNasc = $_GET['anoNasc'] ?? 2000;
             $anoAtual = $_GET['anoAtual'] ?? date('Y');
         ?>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
             <label for="anoNasc">Em que ano você nasceu?</label>
-            <input type="number" name="anoNasc" id="idanoNasc" value="<?=$anoNasc?>">
+            <input type="number" name="anoNasc" id="idanoNasc" min="1900" max="<?=date('Y')?>" value="<?=$anoNasc?>">
             <label for="anoAtual">Quer saber sua idade em que ano? (atualmente estamos em <?=date('Y')?>)</label>
             <input type="number" name="anoAtual" id="idanoAtual" value="<?=$anoAtual?>">
             <input type="submit" value="Qual será minha idade?">
